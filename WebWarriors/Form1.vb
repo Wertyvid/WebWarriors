@@ -26,9 +26,13 @@
     Private Sub LoadHand()
         For Each cardInHand In player.hand
             Dim cardButton As CardButton
-            cardButton = New CardButton(cardInHand)
-            cardButton.Text = cardButton.card.Name
+            cardButton = New CardButton(cardInHand, AddressOf PlayCard)
             FlwLayHand.Controls.Add(cardButton)
         Next
     End Sub
+
+    Public Sub PlayCard(sender As CardButton, e As EventArgs)
+        sender.Text = "aaa"
+    End Sub
 End Class
+

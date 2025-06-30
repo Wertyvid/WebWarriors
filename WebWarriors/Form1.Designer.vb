@@ -23,21 +23,24 @@ Partial Class FrmWebWarriors
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         TblLayMain = New TableLayoutPanel()
-        LblPlayerInfo = New Label()
         LblEnemyInfo = New Label()
         TblLayCards = New TableLayoutPanel()
         FlwLayHand = New FlowLayoutPanel()
+        TableLayoutPanel1 = New TableLayoutPanel()
+        LblPlayerInfo = New Label()
+        BtnEndTurn = New Button()
         TblLayMain.SuspendLayout()
         TblLayCards.SuspendLayout()
+        TableLayoutPanel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' TblLayMain
         ' 
         TblLayMain.ColumnCount = 1
         TblLayMain.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TblLayMain.Controls.Add(LblPlayerInfo, 0, 2)
         TblLayMain.Controls.Add(LblEnemyInfo, 0, 0)
         TblLayMain.Controls.Add(TblLayCards, 0, 1)
+        TblLayMain.Controls.Add(TableLayoutPanel1, 0, 2)
         TblLayMain.Dock = DockStyle.Fill
         TblLayMain.Location = New Point(0, 0)
         TblLayMain.Name = "TblLayMain"
@@ -47,17 +50,6 @@ Partial Class FrmWebWarriors
         TblLayMain.RowStyles.Add(New RowStyle(SizeType.Percent, 35F))
         TblLayMain.Size = New Size(800, 450)
         TblLayMain.TabIndex = 0
-        ' 
-        ' LblPlayerInfo
-        ' 
-        LblPlayerInfo.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        LblPlayerInfo.AutoSize = True
-        LblPlayerInfo.Location = New Point(737, 292)
-        LblPlayerInfo.Name = "LblPlayerInfo"
-        LblPlayerInfo.Size = New Size(60, 15)
-        LblPlayerInfo.TabIndex = 1
-        LblPlayerInfo.Text = "PlayerInfo"
-        LblPlayerInfo.TextAlign = ContentAlignment.TopRight
         ' 
         ' LblEnemyInfo
         ' 
@@ -93,6 +85,43 @@ Partial Class FrmWebWarriors
         FlwLayHand.Size = New Size(629, 123)
         FlwLayHand.TabIndex = 0
         ' 
+        ' TableLayoutPanel1
+        ' 
+        TableLayoutPanel1.ColumnCount = 2
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel1.Controls.Add(LblPlayerInfo, 1, 0)
+        TableLayoutPanel1.Controls.Add(BtnEndTurn, 1, 1)
+        TableLayoutPanel1.Dock = DockStyle.Fill
+        TableLayoutPanel1.Location = New Point(3, 295)
+        TableLayoutPanel1.Name = "TableLayoutPanel1"
+        TableLayoutPanel1.RowCount = 2
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel1.Size = New Size(794, 152)
+        TableLayoutPanel1.TabIndex = 4
+        ' 
+        ' LblPlayerInfo
+        ' 
+        LblPlayerInfo.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        LblPlayerInfo.AutoSize = True
+        LblPlayerInfo.Location = New Point(731, 0)
+        LblPlayerInfo.Name = "LblPlayerInfo"
+        LblPlayerInfo.Size = New Size(60, 15)
+        LblPlayerInfo.TabIndex = 2
+        LblPlayerInfo.Text = "PlayerInfo"
+        LblPlayerInfo.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' BtnEndTurn
+        ' 
+        BtnEndTurn.Dock = DockStyle.Right
+        BtnEndTurn.Location = New Point(716, 79)
+        BtnEndTurn.Name = "BtnEndTurn"
+        BtnEndTurn.Size = New Size(75, 70)
+        BtnEndTurn.TabIndex = 3
+        BtnEndTurn.Text = "End Turn"
+        BtnEndTurn.UseVisualStyleBackColor = True
+        ' 
         ' FrmWebWarriors
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -104,13 +133,17 @@ Partial Class FrmWebWarriors
         TblLayMain.ResumeLayout(False)
         TblLayMain.PerformLayout()
         TblLayCards.ResumeLayout(False)
+        TableLayoutPanel1.ResumeLayout(False)
+        TableLayoutPanel1.PerformLayout()
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents TblLayMain As TableLayoutPanel
-    Friend WithEvents LblPlayerInfo As Label
     Friend WithEvents LblEnemyInfo As Label
     Friend WithEvents TblLayCards As TableLayoutPanel
     Friend WithEvents FlwLayHand As FlowLayoutPanel
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents LblPlayerInfo As Label
+    Friend WithEvents BtnEndTurn As Button
 
 End Class

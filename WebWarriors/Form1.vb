@@ -1,4 +1,6 @@
-﻿Public Class FrmWebWarriors
+﻿Imports System.Drawing.Text
+
+Public Class FrmWebWarriors
     Dim player As Player
     Dim enemy As Enemy
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -7,8 +9,7 @@
 
         player.Setup()
 
-        DisplayPlayer()
-        DisplayEnemy()
+        UpdateDisplay()
 
         player.StartTurn()
         LoadHand()
@@ -23,6 +24,11 @@
         LblEnemyInfo.Text = enemy.ToString()
     End Sub
 
+    Private Sub UpdateDisplay()
+        DisplayPlayer()
+        DisplayEnemy()
+    End Sub
+
     Private Sub LoadHand()
         For Each cardInHand In player.hand
             Dim cardButton As CardButton
@@ -32,9 +38,25 @@
     End Sub
 
     Public Sub PlayCard(sender As CardButton, e As EventArgs)
-        sender.card.Play(player, enemy)
-        DisplayEnemy()
-        DisplayPlayer()
+        If player.currentMana - sender.card.cost >= 0 Then
+            player.UseMana(sender.card.cost)
+            sender.card.Play(player, enemy)
+            player.HandtoDiscard(sender.card)
+            sender.Dispose()
+            UpdateDisplay()
+        Else
+            sender.BackColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub EndTurn(sender As Object, e As EventArgs) Handles BtnEndTurn.Click
+        FlwLayHand.Controls.Clear()
+        player.EndTurn()
+        HandleEnemyTurn()
+
+    End Sub
+    Private Sub HandleEnemyTurn()
+
     End Sub
 End Class
 

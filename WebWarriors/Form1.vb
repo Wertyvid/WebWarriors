@@ -11,8 +11,7 @@ Public Class FrmWebWarriors
 
         UpdateDisplay()
 
-        player.StartTurn()
-        LoadHand()
+        HandlePlayerTurn()
 
     End Sub
 
@@ -56,7 +55,12 @@ Public Class FrmWebWarriors
 
     End Sub
     Private Sub HandleEnemyTurn()
+        HandlePlayerTurn()
+    End Sub
 
+    Private Sub HandlePlayerTurn()
+        player.StartTurn()
+        LoadHand()
     End Sub
 End Class
 

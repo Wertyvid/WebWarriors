@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class FrmWebWarriors
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -93,14 +93,14 @@ Partial Class Form1
         FlwLayHand.Size = New Size(629, 123)
         FlwLayHand.TabIndex = 0
         ' 
-        ' Form1
+        ' FrmWebWarriors
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
         Controls.Add(TblLayMain)
-        Name = "Form1"
-        Text = "FrmWebWarriors"
+        Name = "FrmWebWarriors"
+        Text = "Web Warriors"
         TblLayMain.ResumeLayout(False)
         TblLayMain.PerformLayout()
         TblLayCards.ResumeLayout(False)

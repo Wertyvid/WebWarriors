@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class FrmWebWarriors
     Dim player As Player
     Dim enemy As Enemy
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -32,7 +32,9 @@
     End Sub
 
     Public Sub PlayCard(sender As CardButton, e As EventArgs)
-        sender.Text = "aaa"
+        sender.card.Play(player, enemy)
+        DisplayEnemy()
+        DisplayPlayer()
     End Sub
 End Class
 

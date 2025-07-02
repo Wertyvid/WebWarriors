@@ -83,7 +83,7 @@
 		hp -= damage
 		hp = Math.Clamp(hp, 0, maxHP)
 		If hp = 0 Then
-			battleForm.Close()
+			battleForm.Lose()
 		End If
 	End Sub
 
@@ -97,8 +97,20 @@
 End Class
 
 
+
+
 Public Class Enemy
-	Dim hp As Integer
+	Dim intentionList As List(Of EnemyIntention) = New List(Of EnemyIntention)
+	Dim battleForm As FrmWebWarriors
+
+	Dim hp As Integer = 20
+
+	Public Sub Setup()
+		intentionList.Add(New AttackIntention)
+	End Sub
+	Public Sub New(form As FrmWebWarriors)
+		battleForm = form
+	End Sub
 
 	Public Sub TakeDamage(damage As Integer)
 		hp -= damage
@@ -107,4 +119,12 @@ Public Class Enemy
 	Public Overrides Function ToString() As String
 		Return $"Enemy{vbCrLf}HP: {hp}"
 	End Function
+
+	Public Sub StartTurn()
+		Dim currentIntention = intentionList(battleForm.turncount Mod intentionList.Count)
+		battleForm.LogEvent(currentIntention.ToString)
+		currentIntention.Act(battleForm.player, Me)
+
+	End Sub
 End Class
+

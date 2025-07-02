@@ -23,24 +23,27 @@ Partial Class FrmWebWarriors
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         TblLayMain = New TableLayoutPanel()
-        LblEnemyInfo = New Label()
         TblLayCards = New TableLayoutPanel()
         FlwLayHand = New FlowLayoutPanel()
         TableLayoutPanel1 = New TableLayoutPanel()
         LblPlayerInfo = New Label()
         BtnEndTurn = New Button()
+        TableLayoutPanel2 = New TableLayoutPanel()
+        LblEnemyInfo = New Label()
+        LstBoxLog = New ListBox()
         TblLayMain.SuspendLayout()
         TblLayCards.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
+        TableLayoutPanel2.SuspendLayout()
         SuspendLayout()
         ' 
         ' TblLayMain
         ' 
         TblLayMain.ColumnCount = 1
         TblLayMain.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TblLayMain.Controls.Add(LblEnemyInfo, 0, 0)
         TblLayMain.Controls.Add(TblLayCards, 0, 1)
         TblLayMain.Controls.Add(TableLayoutPanel1, 0, 2)
+        TblLayMain.Controls.Add(TableLayoutPanel2, 0, 0)
         TblLayMain.Dock = DockStyle.Fill
         TblLayMain.Location = New Point(0, 0)
         TblLayMain.Name = "TblLayMain"
@@ -50,17 +53,6 @@ Partial Class FrmWebWarriors
         TblLayMain.RowStyles.Add(New RowStyle(SizeType.Percent, 35F))
         TblLayMain.Size = New Size(800, 450)
         TblLayMain.TabIndex = 0
-        ' 
-        ' LblEnemyInfo
-        ' 
-        LblEnemyInfo.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        LblEnemyInfo.AutoSize = True
-        LblEnemyInfo.Location = New Point(756, 0)
-        LblEnemyInfo.Name = "LblEnemyInfo"
-        LblEnemyInfo.Size = New Size(41, 15)
-        LblEnemyInfo.TabIndex = 2
-        LblEnemyInfo.Text = "Label1"
-        LblEnemyInfo.TextAlign = ContentAlignment.TopRight
         ' 
         ' TblLayCards
         ' 
@@ -122,6 +114,43 @@ Partial Class FrmWebWarriors
         BtnEndTurn.Text = "End Turn"
         BtnEndTurn.UseVisualStyleBackColor = True
         ' 
+        ' TableLayoutPanel2
+        ' 
+        TableLayoutPanel2.ColumnCount = 3
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 40F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 30F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 30F))
+        TableLayoutPanel2.Controls.Add(LstBoxLog, 0, 0)
+        TableLayoutPanel2.Controls.Add(LblEnemyInfo, 2, 0)
+        TableLayoutPanel2.Dock = DockStyle.Fill
+        TableLayoutPanel2.Location = New Point(3, 3)
+        TableLayoutPanel2.Name = "TableLayoutPanel2"
+        TableLayoutPanel2.RowCount = 1
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel2.Size = New Size(794, 151)
+        TableLayoutPanel2.TabIndex = 5
+        ' 
+        ' LblEnemyInfo
+        ' 
+        LblEnemyInfo.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        LblEnemyInfo.AutoSize = True
+        LblEnemyInfo.Location = New Point(750, 0)
+        LblEnemyInfo.Name = "LblEnemyInfo"
+        LblEnemyInfo.Size = New Size(41, 15)
+        LblEnemyInfo.TabIndex = 3
+        LblEnemyInfo.Text = "Label1"
+        LblEnemyInfo.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' LstBoxLog
+        ' 
+        LstBoxLog.Dock = DockStyle.Fill
+        LstBoxLog.FormattingEnabled = True
+        LstBoxLog.ItemHeight = 15
+        LstBoxLog.Location = New Point(3, 3)
+        LstBoxLog.Name = "LstBoxLog"
+        LstBoxLog.Size = New Size(311, 145)
+        LstBoxLog.TabIndex = 4
+        ' 
         ' FrmWebWarriors
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -131,19 +160,22 @@ Partial Class FrmWebWarriors
         Name = "FrmWebWarriors"
         Text = "Web Warriors"
         TblLayMain.ResumeLayout(False)
-        TblLayMain.PerformLayout()
         TblLayCards.ResumeLayout(False)
         TableLayoutPanel1.ResumeLayout(False)
         TableLayoutPanel1.PerformLayout()
+        TableLayoutPanel2.ResumeLayout(False)
+        TableLayoutPanel2.PerformLayout()
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents TblLayMain As TableLayoutPanel
-    Friend WithEvents LblEnemyInfo As Label
     Friend WithEvents TblLayCards As TableLayoutPanel
     Friend WithEvents FlwLayHand As FlowLayoutPanel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents LblPlayerInfo As Label
     Friend WithEvents BtnEndTurn As Button
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents LstBoxLog As ListBox
+    Friend WithEvents LblEnemyInfo As Label
 
 End Class

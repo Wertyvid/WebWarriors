@@ -1,13 +1,16 @@
 ﻿Imports System.Drawing.Text
 
 Public Class FrmWebWarriors
-    Dim player As Player
-    Dim enemy As Enemy
+    Public player As Player
+    Public enemy As Enemy
+
+    Public turncount As Integer = 0
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         player = New Player(Me)
-        enemy = New Enemy()
+        enemy = New Enemy(Me)
 
         player.Setup()
+        enemy.Setup()
 
         UpdateDisplay()
 
@@ -28,6 +31,10 @@ Public Class FrmWebWarriors
         DisplayEnemy()
     End Sub
 
+    Public Sub LogEvent(eventText As String)
+        LstBoxLog.Items.Add(eventText)
+    End Sub
+
     Private Sub LoadHand()
         For Each cardInHand In player.hand
             Dim cardButton As CardButton
@@ -40,6 +47,7 @@ Public Class FrmWebWarriors
         If player.currentMana - sender.card.cost >= 0 Then
             player.UseMana(sender.card.cost)
             sender.card.Play(player, enemy)
+            LogEvent(sender.card.description)
             player.HandtoDiscard(sender.card)
             sender.Dispose()
             UpdateDisplay()
@@ -55,6 +63,9 @@ Public Class FrmWebWarriors
 
     End Sub
     Private Sub HandleEnemyTurn()
+        enemy.StartTurn()
+        turncount += 1
+        UpdateDisplay()
         HandlePlayerTurn()
     End Sub
 
@@ -63,9 +74,13 @@ Public Class FrmWebWarriors
         LoadHand()
     End Sub
 
-    Public Sub Finish()
-        LblPlayerInfo.Text = "ooo dead"
-        Close()
+    Public Sub Lose()
+        Controls.Clear()
+        Dim LblLost As Label = New Label()
+        LblLost.Text = "You lose!"
+        LblLost.Dock = DockStyle.Fill
+        LblLost.TextAlign = ContentAlignment.MiddleCenter
+        Controls.Add(LblLost)
     End Sub
 End Class
 

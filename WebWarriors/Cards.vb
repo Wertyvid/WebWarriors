@@ -29,6 +29,6 @@ Public Class CardHealSelf
         description = "Heal 5 health"
     End Sub
     Public Overrides Sub Play(player As Player, target As Enemy)
-        player.TakeDamage(-5)
+        player.TakeDamage(5)
     End Sub
 End Class

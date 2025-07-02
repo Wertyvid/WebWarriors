@@ -1,5 +1,8 @@
 ﻿Public Class Player
 	Dim rnd As New Random()
+	Dim battleForm As FrmWebWarriors
+
+	Dim maxHP As Integer = 10
 	Dim hp As Integer = 10
 	Public currentMana = 0
 	Dim maxMana = 3
@@ -8,7 +11,12 @@
 	Public DiscardPile As List(Of PlayerCard) = New List(Of PlayerCard)
 	Public hand As List(Of PlayerCard) = New List(Of PlayerCard)
 
+	Public Sub New(form As FrmWebWarriors)
+		battleForm = form
+	End Sub
+
 	Public Sub Setup()
+		hp = maxHP
 		currentMana = maxMana
 		fullDeck.Add(New CardBitSlash())
 		fullDeck.Add(New CardBitSlash())
@@ -73,6 +81,10 @@
 
 	Public Sub TakeDamage(damage As Integer)
 		hp -= damage
+		hp = Math.Clamp(hp, 0, maxHP)
+		If hp = 0 Then
+			battleForm.Close()
+		End If
 	End Sub
 
 	Public Sub UseMana(amount As Integer)

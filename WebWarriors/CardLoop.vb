@@ -4,7 +4,7 @@ Public Class FrmWebWarriors
     Dim player As Player
     Dim enemy As Enemy
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        player = New Player()
+        player = New Player(Me)
         enemy = New Enemy()
 
         player.Setup()
@@ -61,6 +61,11 @@ Public Class FrmWebWarriors
     Private Sub HandlePlayerTurn()
         player.StartTurn()
         LoadHand()
+    End Sub
+
+    Public Sub Finish()
+        LblPlayerInfo.Text = "ooo dead"
+        Close()
     End Sub
 End Class
 

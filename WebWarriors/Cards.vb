@@ -32,3 +32,15 @@ Public Class CardHealSelf
         player.TakeDamage(-5)
     End Sub
 End Class
+
+Public Class CardVulnerable
+    Inherits PlayerCard
+    Sub New()
+        name = "Disable Firewall"
+        description = "Apply vulnerable"
+    End Sub
+
+    Public Overrides Sub Play(player As Player, target As Enemy)
+        target.ApplyCondition(New VulnerableCondition())
+    End Sub
+End Class

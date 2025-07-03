@@ -26,6 +26,8 @@
 		fullDeck.Add(New CardHealSelf())
 		fullDeck.Add(New CardHealSelf())
 		fullDeck.Add(New CardHealSelf())
+		fullDeck.Add(New CardVulnerable())
+		fullDeck.Add(New CardVulnerable())
 		drawPile = fullDeck.ToList()
 		Shuffle(drawPile)
 	End Sub
@@ -106,6 +108,8 @@ Public Class Enemy
 	Dim maxHP As Integer = 20
 	Dim hp As Integer = 20
 
+	Dim conditions As List(Of Condition) = New List(Of Condition)
+
 	Public Sub Setup()
 		intentionList.Add(New AttackIntention)
 	End Sub
@@ -114,10 +118,32 @@ Public Class Enemy
 	End Sub
 
 	Public Sub TakeDamage(damage As Integer)
-		hp -= damage
+		Dim damageAfterConditions = damage
+		For Each condition As Condition In conditions
+			damageAfterConditions = condition.AffectDamage(damageAfterConditions)
+		Next
+		hp -= damageAfterConditions
 		hp = Math.Clamp(hp, 0, maxHP)
 		If hp = 0 Then
 			battleForm.Win()
+		End If
+	End Sub
+
+	Public Sub ApplyCondition(condition As Condition, Optional amount As Integer = 1)
+		Dim newConditionType As Type = condition.GetType()
+		Dim newConditionUnused As Boolean = True
+		Dim preexistingConditionOfType As Condition
+		For Each currentCondition In conditions
+			If currentCondition.GetType() = newConditionType Then
+				newConditionUnused = False
+				preexistingConditionOfType = currentCondition
+			End If
+		Next
+		If newConditionUnused Then
+			condition.Amount = amount
+			conditions.Add(condition)
+		Else
+			preexistingConditionOfType.Amount += amount
 		End If
 	End Sub
 
@@ -130,6 +156,10 @@ Public Class Enemy
 		battleForm.LogEvent(currentIntention.ToString)
 		currentIntention.Act(battleForm.player, Me)
 
+		For Each condition As Condition In conditions
+			condition.EndTurnEffect(Me)
+		Next
 	End Sub
+
 End Class
 

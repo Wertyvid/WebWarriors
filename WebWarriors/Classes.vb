@@ -103,6 +103,7 @@ Public Class Enemy
 	Dim intentionList As List(Of EnemyIntention) = New List(Of EnemyIntention)
 	Dim battleForm As FrmWebWarriors
 
+	Dim maxHP As Integer = 20
 	Dim hp As Integer = 20
 
 	Public Sub Setup()
@@ -114,6 +115,10 @@ Public Class Enemy
 
 	Public Sub TakeDamage(damage As Integer)
 		hp -= damage
+		hp = Math.Clamp(hp, 0, maxHP)
+		If hp = 0 Then
+			battleForm.Win()
+		End If
 	End Sub
 
 	Public Overrides Function ToString() As String

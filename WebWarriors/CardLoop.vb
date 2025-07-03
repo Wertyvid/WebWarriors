@@ -82,5 +82,14 @@ Public Class FrmWebWarriors
         LblLost.TextAlign = ContentAlignment.MiddleCenter
         Controls.Add(LblLost)
     End Sub
+
+    Public Sub Win()
+        Controls.Clear()
+        Dim LblLost As Label = New Label()
+        LblLost.Text = "You win!"
+        LblLost.Dock = DockStyle.Fill
+        LblLost.TextAlign = ContentAlignment.MiddleCenter
+        Controls.Add(LblLost)
+    End Sub
 End Class
 

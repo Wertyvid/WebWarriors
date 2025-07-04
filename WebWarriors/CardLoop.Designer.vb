@@ -29,8 +29,8 @@ Partial Class FrmWebWarriors
         LblPlayerInfo = New Label()
         BtnEndTurn = New Button()
         TableLayoutPanel2 = New TableLayoutPanel()
-        LblEnemyInfo = New Label()
         LstBoxLog = New ListBox()
+        LblEnemyInfo = New Label()
         TblLayMain.SuspendLayout()
         TblLayCards.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
@@ -130,6 +130,16 @@ Partial Class FrmWebWarriors
         TableLayoutPanel2.Size = New Size(794, 151)
         TableLayoutPanel2.TabIndex = 5
         ' 
+        ' LstBoxLog
+        ' 
+        LstBoxLog.Dock = DockStyle.Fill
+        LstBoxLog.FormattingEnabled = True
+        LstBoxLog.ItemHeight = 15
+        LstBoxLog.Location = New Point(3, 3)
+        LstBoxLog.Name = "LstBoxLog"
+        LstBoxLog.Size = New Size(311, 145)
+        LstBoxLog.TabIndex = 4
+        ' 
         ' LblEnemyInfo
         ' 
         LblEnemyInfo.Anchor = AnchorStyles.Top Or AnchorStyles.Right
@@ -140,16 +150,6 @@ Partial Class FrmWebWarriors
         LblEnemyInfo.TabIndex = 3
         LblEnemyInfo.Text = "Label1"
         LblEnemyInfo.TextAlign = ContentAlignment.TopRight
-        ' 
-        ' LstBoxLog
-        ' 
-        LstBoxLog.Dock = DockStyle.Fill
-        LstBoxLog.FormattingEnabled = True
-        LstBoxLog.ItemHeight = 15
-        LstBoxLog.Location = New Point(3, 3)
-        LstBoxLog.Name = "LstBoxLog"
-        LstBoxLog.Size = New Size(311, 145)
-        LstBoxLog.TabIndex = 4
         ' 
         ' FrmWebWarriors
         ' 

@@ -1,12 +1,25 @@
 ﻿Imports System.Drawing.Text
 
 Public Class FrmWebWarriors
+    Dim closeable As Boolean = False
+
     Public player As Player
     Public enemy As Enemy
 
     Public turncount As Integer = 0
+
+
+    Public Sub New(battlePlayer As Player)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        player = battlePlayer
+
+    End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        player = New Player(Me)
+        player.battleForm = Me
         enemy = New Enemy(Me)
 
         player.Setup()
@@ -90,6 +103,28 @@ Public Class FrmWebWarriors
         LblLost.Dock = DockStyle.Fill
         LblLost.TextAlign = ContentAlignment.MiddleCenter
         Controls.Add(LblLost)
+        CreateAwardCardMenu()
+    End Sub
+
+    Private Sub CreateAwardCardMenu()
+        Dim awardCardForm As FrmAwardCard = New FrmAwardCard(player, Me)
+        awardCardForm.Show()
+    End Sub
+
+    Public Sub AwardingCardFinished()
+        RemoveBattle()
+    End Sub
+
+    Public Sub RemoveBattle()
+        closeable = True
+        Close()
+
+    End Sub
+
+    Private Sub FrmWebWarriors_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If Not closeable Then
+            e.Cancel = True
+        End If
     End Sub
 End Class
 

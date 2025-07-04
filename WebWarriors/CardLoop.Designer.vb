@@ -24,15 +24,15 @@ Partial Class FrmWebWarriors
     Private Sub InitializeComponent()
         TblLayMain = New TableLayoutPanel()
         TblLayCards = New TableLayoutPanel()
+        LblDiscardCount = New Label()
         FlwLayHand = New FlowLayoutPanel()
+        LblDrawCount = New Label()
         TableLayoutPanel1 = New TableLayoutPanel()
         LblPlayerInfo = New Label()
         BtnEndTurn = New Button()
         TableLayoutPanel2 = New TableLayoutPanel()
         LstBoxLog = New ListBox()
         LblEnemyInfo = New Label()
-        LblDrawCount = New Label()
-        LblDiscardCount = New Label()
         TblLayMain.SuspendLayout()
         TblLayCards.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
@@ -73,6 +73,17 @@ Partial Class FrmWebWarriors
         TblLayCards.Size = New Size(794, 129)
         TblLayCards.TabIndex = 3
         ' 
+        ' LblDiscardCount
+        ' 
+        LblDiscardCount.AutoSize = True
+        LblDiscardCount.Dock = DockStyle.Fill
+        LblDiscardCount.Location = New Point(717, 0)
+        LblDiscardCount.Name = "LblDiscardCount"
+        LblDiscardCount.Size = New Size(74, 129)
+        LblDiscardCount.TabIndex = 2
+        LblDiscardCount.Text = "Label2"
+        LblDiscardCount.TextAlign = ContentAlignment.MiddleCenter
+        ' 
         ' FlwLayHand
         ' 
         FlwLayHand.Dock = DockStyle.Fill
@@ -80,6 +91,17 @@ Partial Class FrmWebWarriors
         FlwLayHand.Name = "FlwLayHand"
         FlwLayHand.Size = New Size(629, 123)
         FlwLayHand.TabIndex = 0
+        ' 
+        ' LblDrawCount
+        ' 
+        LblDrawCount.AutoSize = True
+        LblDrawCount.Dock = DockStyle.Fill
+        LblDrawCount.Location = New Point(3, 0)
+        LblDrawCount.Name = "LblDrawCount"
+        LblDrawCount.Size = New Size(73, 129)
+        LblDrawCount.TabIndex = 1
+        LblDrawCount.Text = "Label1"
+        LblDrawCount.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TableLayoutPanel1
         ' 
@@ -155,28 +177,6 @@ Partial Class FrmWebWarriors
         LblEnemyInfo.Text = "Label1"
         LblEnemyInfo.TextAlign = ContentAlignment.TopRight
         ' 
-        ' LblDrawCount
-        ' 
-        LblDrawCount.AutoSize = True
-        LblDrawCount.Dock = DockStyle.Fill
-        LblDrawCount.Location = New Point(3, 0)
-        LblDrawCount.Name = "LblDrawCount"
-        LblDrawCount.Size = New Size(73, 129)
-        LblDrawCount.TabIndex = 1
-        LblDrawCount.Text = "Label1"
-        LblDrawCount.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' LblDiscardCount
-        ' 
-        LblDiscardCount.AutoSize = True
-        LblDiscardCount.Dock = DockStyle.Fill
-        LblDiscardCount.Location = New Point(717, 0)
-        LblDiscardCount.Name = "LblDiscardCount"
-        LblDiscardCount.Size = New Size(74, 129)
-        LblDiscardCount.TabIndex = 2
-        LblDiscardCount.Text = "Label2"
-        LblDiscardCount.TextAlign = ContentAlignment.MiddleCenter
-        ' 
         ' FrmWebWarriors
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -203,8 +203,8 @@ Partial Class FrmWebWarriors
     Friend WithEvents BtnEndTurn As Button
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents LstBoxLog As ListBox
-    Friend WithEvents LblEnemyInfo As Label
     Friend WithEvents LblDrawCount As Label
     Friend WithEvents LblDiscardCount As Label
+    Friend WithEvents LblEnemyInfo As Label
 
 End Class

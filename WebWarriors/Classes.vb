@@ -113,13 +113,15 @@ Public Class Enemy
 	Dim intentionList As List(Of EnemyIntention) = New List(Of EnemyIntention)
 	Dim battleForm As FrmWebWarriors
 
-	Dim maxHP As Integer = 20
-	Dim hp As Integer = 20
+	Dim maxHP As Integer = 40
+	Dim hp As Integer = 40
 
 	Dim conditions As List(Of Condition) = New List(Of Condition)
 
 	Public Sub Setup()
-		intentionList.Add(New AttackIntention)
+		intentionList.Add(New AttackIntention(7))
+		intentionList.Add(New AttackIntention(4))
+		intentionList.Add(New AttackIntention(12))
 	End Sub
 	Public Sub New(form As FrmWebWarriors)
 		battleForm = form
@@ -156,12 +158,12 @@ Public Class Enemy
 	End Sub
 
 	Public Overrides Function ToString() As String
-		Return $"Enemy{vbCrLf}HP: {hp}"
+		Return $"Enemy{vbCrLf}HP: {hp}{vbCrLf}{intentionList(battleForm.turncount Mod intentionList.Count).AsPremonition()}"
 	End Function
 
 	Public Sub StartTurn()
 		Dim currentIntention = intentionList(battleForm.turncount Mod intentionList.Count)
-		battleForm.LogEvent(currentIntention.ToString)
+		battleForm.LogEvent(currentIntention.ToString())
 		currentIntention.Act(battleForm.player, Me)
 
 		For Each condition As Condition In conditions

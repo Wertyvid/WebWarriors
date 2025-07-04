@@ -12,22 +12,24 @@
 	Public hand As List(Of PlayerCard) = New List(Of PlayerCard)
 
 
+	Public Sub New()
+		fullDeck.Add(New CardBitSlash())
+		fullDeck.Add(New CardBitSlash())
+		fullDeck.Add(New CardBitSlash())
+		fullDeck.Add(New CardBitSlash())
+		fullDeck.Add(New CardBitSlash())
+		fullDeck.Add(New CardHealSelf())
+		fullDeck.Add(New CardHealSelf())
+		fullDeck.Add(New CardHealSelf())
+		fullDeck.Add(New CardVulnerable())
+		fullDeck.Add(New CardVulnerable())
+	End Sub
 	Public Sub AwardCard(card As PlayerCard)
 		fullDeck.Add(card)
 	End Sub
 	Public Sub Setup()
 		hp = maxHP
 		currentMana = maxMana
-		fullDeck.Add(New CardBitSlash())
-		fullDeck.Add(New CardBitSlash())
-		fullDeck.Add(New CardBitSlash())
-		fullDeck.Add(New CardBitSlash())
-		fullDeck.Add(New CardBitSlash())
-		fullDeck.Add(New CardHealSelf())
-		fullDeck.Add(New CardHealSelf())
-		fullDeck.Add(New CardHealSelf())
-		fullDeck.Add(New CardVulnerable())
-		fullDeck.Add(New CardVulnerable())
 		drawPile = fullDeck.ToList()
 		Shuffle(drawPile)
 	End Sub

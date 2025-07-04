@@ -9,6 +9,14 @@
     Public Overrides Function ToString() As String
         Return $"{name}:{cost.ToString}{vbCrLf}{description}"
     End Function
+
+End Class
+
+Public Class RandomCardGetter
+    Public Shared Function GetRandomCard(rnd As Random) As PlayerCard
+        Dim allCards As List(Of PlayerCard) = New List(Of PlayerCard) From {New CardBitSlash(), New CardVulnerable(), New CardHealSelf()}
+        Return allCards(rnd.Next(0, allCards.Count))
+    End Function
 End Class
 
 Public Class CardBitSlash

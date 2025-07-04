@@ -1,4 +1,6 @@
 ﻿Public Class FrmAwardCard
+    Dim rnd As Random = New Random()
+
     Dim closeable As Boolean = False
     Dim player As Player
     Dim owningForm As FrmWebWarriors
@@ -14,7 +16,7 @@
 
     Private Sub AwardCard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         For n As Integer = 0 To 2
-            TblLayCardRewards.Controls.Add(New CardButton(New CardBitSlash, AddressOf AwardPlayerCard), n, 0)
+            TblLayCardRewards.Controls.Add(New CardButton(RandomCardGetter.GetRandomCard(rnd), AddressOf AwardPlayerCard), n, 0)
         Next
     End Sub
 

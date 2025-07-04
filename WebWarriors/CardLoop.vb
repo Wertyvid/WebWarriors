@@ -33,6 +33,8 @@ Public Class FrmWebWarriors
 
     Private Sub DisplayPlayer()
         LblPlayerInfo.Text = player.ToString()
+        LblDiscardCount.Text = player.DiscardPile.Count.ToString()
+        LblDrawCount.Text = player.drawPile.Count.ToString()
     End Sub
 
     Private Sub DisplayEnemy()
@@ -85,6 +87,7 @@ Public Class FrmWebWarriors
     Private Sub HandlePlayerTurn()
         player.StartTurn()
         LoadHand()
+        UpdateDisplay()
     End Sub
 
     Public Sub Lose()
@@ -102,6 +105,7 @@ Public Class FrmWebWarriors
         LblLost.Text = "You win!"
         LblLost.Dock = DockStyle.Fill
         LblLost.TextAlign = ContentAlignment.MiddleCenter
+        player.FinishBattle()
         Controls.Add(LblLost)
         CreateAwardCardMenu()
     End Sub

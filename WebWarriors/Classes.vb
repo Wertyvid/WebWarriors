@@ -93,6 +93,12 @@
 		currentMana -= amount
 	End Sub
 
+	Public Sub FinishBattle()
+		DiscardPile.Clear()
+		drawPile.Clear()
+		hand.Clear()
+	End Sub
+
 	Public Overrides Function ToString() As String
 		Return $"Player{vbCrLf}Hp: {hp}{vbCrLf}Mana: {currentMana}"
 	End Function

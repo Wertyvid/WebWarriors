@@ -31,6 +31,8 @@ Partial Class FrmWebWarriors
         TableLayoutPanel2 = New TableLayoutPanel()
         LstBoxLog = New ListBox()
         LblEnemyInfo = New Label()
+        LblDrawCount = New Label()
+        LblDiscardCount = New Label()
         TblLayMain.SuspendLayout()
         TblLayCards.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
@@ -60,7 +62,9 @@ Partial Class FrmWebWarriors
         TblLayCards.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 10F))
         TblLayCards.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 80F))
         TblLayCards.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 10F))
+        TblLayCards.Controls.Add(LblDiscardCount, 2, 0)
         TblLayCards.Controls.Add(FlwLayHand, 1, 0)
+        TblLayCards.Controls.Add(LblDrawCount, 0, 0)
         TblLayCards.Dock = DockStyle.Fill
         TblLayCards.Location = New Point(3, 160)
         TblLayCards.Name = "TblLayCards"
@@ -151,6 +155,28 @@ Partial Class FrmWebWarriors
         LblEnemyInfo.Text = "Label1"
         LblEnemyInfo.TextAlign = ContentAlignment.TopRight
         ' 
+        ' LblDrawCount
+        ' 
+        LblDrawCount.AutoSize = True
+        LblDrawCount.Dock = DockStyle.Fill
+        LblDrawCount.Location = New Point(3, 0)
+        LblDrawCount.Name = "LblDrawCount"
+        LblDrawCount.Size = New Size(73, 129)
+        LblDrawCount.TabIndex = 1
+        LblDrawCount.Text = "Label1"
+        LblDrawCount.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' LblDiscardCount
+        ' 
+        LblDiscardCount.AutoSize = True
+        LblDiscardCount.Dock = DockStyle.Fill
+        LblDiscardCount.Location = New Point(717, 0)
+        LblDiscardCount.Name = "LblDiscardCount"
+        LblDiscardCount.Size = New Size(74, 129)
+        LblDiscardCount.TabIndex = 2
+        LblDiscardCount.Text = "Label2"
+        LblDiscardCount.TextAlign = ContentAlignment.MiddleCenter
+        ' 
         ' FrmWebWarriors
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -161,6 +187,7 @@ Partial Class FrmWebWarriors
         Text = "Web Warriors"
         TblLayMain.ResumeLayout(False)
         TblLayCards.ResumeLayout(False)
+        TblLayCards.PerformLayout()
         TableLayoutPanel1.ResumeLayout(False)
         TableLayoutPanel1.PerformLayout()
         TableLayoutPanel2.ResumeLayout(False)
@@ -177,5 +204,7 @@ Partial Class FrmWebWarriors
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents LstBoxLog As ListBox
     Friend WithEvents LblEnemyInfo As Label
+    Friend WithEvents LblDrawCount As Label
+    Friend WithEvents LblDiscardCount As Label
 
 End Class

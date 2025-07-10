@@ -6,8 +6,16 @@
 
     End Sub
 
+    Public Overloads Function ToString(target As Enemy) As String
+        Return $"{name}:{cost.ToString}{vbCrLf}{GetDescription(target)}"
+    End Function
+
     Public Overrides Function ToString() As String
         Return $"{name}:{cost.ToString}{vbCrLf}{description}"
+    End Function
+
+    Public Overridable Function GetDescription(target As Enemy)
+        Return description
     End Function
 
 End Class
@@ -21,13 +29,18 @@ End Class
 
 Public Class CardBitSlash
     Inherits PlayerCard
+    Dim basedamage As Integer = 10
     Sub New()
         name = "BitSlash"
         description = "Deal 10 damage to an enemy"
     End Sub
     Public Overrides Sub Play(player As Player, target As Enemy)
-        target.TakeDamage(10)
+        target.TakeDamage(basedamage)
     End Sub
+
+    Public Overrides Function GetDescription(target As Enemy) As Object
+        Return Replace(description, "10", target.GetRealDamage(basedamage).ToString())
+    End Function
 End Class
 
 Public Class CardHealSelf

@@ -51,9 +51,11 @@ Public Class FrmWebWarriors
     End Sub
 
     Private Sub LoadHand()
+        FlwLayHand.Controls.Clear()
         For Each cardInHand In player.hand
             Dim cardButton As CardButton
             cardButton = New CardButton(cardInHand, AddressOf PlayCard)
+            cardButton.Text = cardInHand.ToString(enemy)
             FlwLayHand.Controls.Add(cardButton)
         Next
     End Sub
@@ -66,6 +68,7 @@ Public Class FrmWebWarriors
             player.HandtoDiscard(sender.card)
             sender.Dispose()
             UpdateDisplay()
+            LoadHand()
         Else
             sender.BackColor = Color.Red
         End If

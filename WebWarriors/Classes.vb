@@ -128,16 +128,21 @@ Public Class Enemy
 	End Sub
 
 	Public Sub TakeDamage(damage As Integer)
-		Dim damageAfterConditions = damage
-		For Each condition As Condition In conditions
-			damageAfterConditions = condition.AffectDamage(damageAfterConditions)
-		Next
+		Dim damageAfterConditions = GetRealDamage(damage)
 		hp -= damageAfterConditions
 		hp = Math.Clamp(hp, 0, maxHP)
 		If hp = 0 Then
 			battleForm.Win()
 		End If
 	End Sub
+
+	Public Function GetRealDamage(damage As Integer)
+		Dim damageAfterConditions = damage
+		For Each condition As Condition In conditions
+			damageAfterConditions = condition.AffectDamage(damageAfterConditions)
+		Next
+		Return damageAfterConditions
+	End Function
 
 	Public Sub ApplyCondition(condition As Condition, Optional amount As Integer = 1)
 		Dim newConditionType As Type = condition.GetType()

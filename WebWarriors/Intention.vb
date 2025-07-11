@@ -17,7 +17,7 @@ Public Class AttackIntention
 		damageToDeal = damage
 	End Sub
 	Overrides Sub Act(player As Player, enemy As Enemy)
-		player.TakeDamage(damageToDeal)
+		player.TakeDamage(enemy.GetRealOutcomingDamage(damageToDeal))
 	End Sub
 
 	Public Overrides Function ToString() As String
@@ -37,6 +37,13 @@ Public Class WeakenIntention
 	End Sub
 	Public Overrides Sub Act(player As Player, enemy As Enemy)
 		player.ApplyCondition(New PowerCondition(), -amounttoWeaken)
-
 	End Sub
+
+	Public Overrides Function AsPremonition() As String
+		Return $"Remove {amounttoWeaken} power"
+	End Function
+
+	Public Overrides Function ToString() As String
+		Return $"The enemy removes {amounttoWeaken} power"
+	End Function
 End Class

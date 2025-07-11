@@ -54,8 +54,7 @@ Public Class FrmWebWarriors
         FlwLayHand.Controls.Clear()
         For Each cardInHand In player.hand
             Dim cardButton As CardButton
-            cardButton = New CardButton(cardInHand, AddressOf PlayCard)
-            cardButton.Text = cardInHand.ToString(enemy)
+            cardButton = New CardButton(cardInHand, AddressOf PlayCard, enemy, player)
             FlwLayHand.Controls.Add(cardButton)
         Next
     End Sub

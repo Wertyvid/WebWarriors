@@ -28,3 +28,15 @@ Public Class AttackIntention
 		Return $"Attack for {damageToDeal} hp"
 	End Function
 End Class
+
+Public Class WeakenIntention
+	Inherits EnemyIntention
+	Dim amounttoWeaken As Integer
+	Public Sub New(weakenAmount As Integer)
+		amounttoWeaken = weakenAmount
+	End Sub
+	Public Overrides Sub Act(player As Player, enemy As Enemy)
+		player.ApplyCondition(New PowerCondition(), -amounttoWeaken)
+
+	End Sub
+End Class

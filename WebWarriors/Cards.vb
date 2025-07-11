@@ -6,15 +6,15 @@
 
     End Sub
 
-    Public Overloads Function ToString(target As Enemy) As String
-        Return $"{name}:{cost.ToString}{vbCrLf}{GetDescription(target)}"
+    Public Overloads Function ToString(target As Enemy, player As Player) As String
+        Return $"{name}:{cost.ToString}{vbCrLf}{GetDescription(target, player)}"
     End Function
 
     Public Overrides Function ToString() As String
         Return $"{name}:{cost.ToString}{vbCrLf}{description}"
     End Function
 
-    Public Overridable Function GetDescription(target As Enemy)
+    Public Overridable Function GetDescription(target As Enemy, player As Player)
         Return description
     End Function
 
@@ -35,11 +35,11 @@ Public Class CardBitSlash
         description = "Deal 10 damage to an enemy"
     End Sub
     Public Overrides Sub Play(player As Player, target As Enemy)
-        target.TakeDamage(basedamage)
+        target.TakeDamage(player.GetRealOutcomingDamage(basedamage))
     End Sub
 
-    Public Overrides Function GetDescription(target As Enemy) As Object
-        Return Replace(description, "10", target.GetRealDamage(basedamage).ToString())
+    Public Overrides Function GetDescription(target As Enemy, player As Player) As Object
+        Return Replace(description, "10", target.GetRealIncomingDamage(player.GetRealOutcomingDamage(basedamage)).ToString())
     End Function
 End Class
 

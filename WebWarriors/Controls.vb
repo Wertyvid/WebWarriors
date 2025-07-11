@@ -8,4 +8,11 @@
         AutoSize = True
         AddHandler Click, eventHandler
     End Sub
+
+    Public Sub New(newCard As PlayerCard, eventHandler As EventHandler, target As Enemy, player As Player)
+        card = newCard
+        Text = card.ToString(target, player)
+        AutoSize = True
+        AddHandler Click, eventHandler
+    End Sub
 End Class

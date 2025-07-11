@@ -33,6 +33,7 @@ Partial Class FrmWebWarriors
         TableLayoutPanel2 = New TableLayoutPanel()
         LstBoxLog = New ListBox()
         LblEnemyInfo = New Label()
+        Label1 = New Label()
         TblLayMain.SuspendLayout()
         TblLayCards.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
@@ -110,6 +111,7 @@ Partial Class FrmWebWarriors
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
         TableLayoutPanel1.Controls.Add(LblPlayerInfo, 1, 0)
         TableLayoutPanel1.Controls.Add(BtnEndTurn, 1, 1)
+        TableLayoutPanel1.Controls.Add(Label1, 0, 1)
         TableLayoutPanel1.Dock = DockStyle.Fill
         TableLayoutPanel1.Location = New Point(3, 295)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -177,6 +179,15 @@ Partial Class FrmWebWarriors
         LblEnemyInfo.Text = "Label1"
         LblEnemyInfo.TextAlign = ContentAlignment.TopRight
         ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(3, 76)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(41, 15)
+        Label1.TabIndex = 4
+        Label1.Text = "Label1"
+        ' 
         ' FrmWebWarriors
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -206,5 +217,6 @@ Partial Class FrmWebWarriors
     Friend WithEvents LblDrawCount As Label
     Friend WithEvents LblDiscardCount As Label
     Friend WithEvents LblEnemyInfo As Label
+    Friend WithEvents Label1 As Label
 
 End Class

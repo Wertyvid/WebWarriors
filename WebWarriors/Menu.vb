@@ -3,9 +3,10 @@
 Public Class Menu
     Dim fightOpen As Boolean = False
     Dim player As Player
+    Dim rnd As New Random()
     Private Sub StartGame(sender As Object, e As EventArgs) Handles Button1.Click
         If Not fightOpen Then
-            Dim fightForm As FrmWebWarriors = New FrmWebWarriors(player)
+            Dim fightForm As FrmWebWarriors = New FrmWebWarriors(player, RandomEnemyGetter.GetRandomEnemy(rnd))
             AddHandler fightForm.FormClosed, AddressOf FightFormClosed
             fightForm.Show()
             fightOpen = True

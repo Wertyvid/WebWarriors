@@ -9,18 +9,19 @@ Public Class FrmWebWarriors
     Public turncount As Integer = 0
 
 
-    Public Sub New(battlePlayer As Player)
+    Public Sub New(battlePlayer As Player, battleEnemy As Enemy)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
         player = battlePlayer
+        enemy = battleEnemy
 
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         player.battleForm = Me
-        enemy = New Enemy(Me)
+        enemy.battleForm = Me
 
         player.Setup()
         enemy.Setup()

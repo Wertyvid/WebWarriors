@@ -46,6 +46,10 @@
 
     End Sub
 
+    Public Sub GiveCardForBattleToDrawPile(card As PlayerCard)
+        drawPile.Add(card)
+    End Sub
+
     Private Sub DrawHand()
         Dim amountToDraw As Integer = 5
         For n As Integer = 1 To amountToDraw

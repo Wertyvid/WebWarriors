@@ -61,16 +61,18 @@ Public Class FrmWebWarriors
     End Sub
 
     Public Sub PlayCard(sender As CardButton, e As EventArgs)
-        If player.currentMana - sender.card.cost >= 0 Then
-            player.UseMana(sender.card.cost)
-            sender.card.Play(player, enemy)
-            LogEvent(sender.card.description)
-            player.HandtoDiscard(sender.card)
-            sender.Dispose()
-            UpdateDisplay()
-            LoadHand()
-        Else
-            sender.BackColor = Color.Red
+        If sender.card.playable Then
+            If player.currentMana - sender.card.cost >= 0 Then
+                player.UseMana(sender.card.cost)
+                sender.card.Play(player, enemy)
+                LogEvent(sender.card.description)
+                player.HandtoDiscard(sender.card)
+                sender.Dispose()
+                UpdateDisplay()
+                LoadHand()
+            Else
+                sender.BackColor = Color.Red
+            End If
         End If
     End Sub
 

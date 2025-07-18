@@ -89,7 +89,17 @@ End Class
 
 Public Class RandomEnemyGetter
     Public Shared Function GetRandomEnemy(rnd As Random) As Enemy
-        Dim allEnemies As List(Of Enemy) = New List(Of Enemy) From {New SillyEnemy()}
+        Dim allEnemies As List(Of Enemy) = New List(Of Enemy) From {New SillyEnemy(), New SentryEnemy()}
         Return allEnemies(rnd.Next(0, allEnemies.Count))
     End Function
+End Class
+
+Public Class SentryEnemy
+    Inherits Enemy
+
+    Public Overrides Sub Setup()
+        SetMaxHP(40)
+        intentionList.Add(New ConfuseIntention(2))
+        intentionList.Add(New AttackIntention(9))
+    End Sub
 End Class

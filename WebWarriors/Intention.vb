@@ -47,3 +47,25 @@ Public Class WeakenIntention
 		Return $"The enemy removes {amounttoWeaken} power"
 	End Function
 End Class
+
+Public Class ConfuseIntention
+	Inherits EnemyIntention
+	Dim amounttoConfuse As Integer
+	Public Sub New(confusionAmount As Integer)
+		amounttoConfuse = confusionAmount
+	End Sub
+
+	Public Overrides Sub Act(player As Player, enemy As Enemy)
+		For n As Integer = 1 To amounttoConfuse
+			player.GiveCardForBattleToDrawPile(New CardConfused())
+		Next
+	End Sub
+
+	Public Overrides Function AsPremonition() As String
+		Return "Confuse the player"
+	End Function
+
+	Public Overrides Function ToString() As String
+		Return $"The enemy adds {amounttoConfuse} confused cards to your deck"
+	End Function
+End Class

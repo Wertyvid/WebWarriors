@@ -1,5 +1,6 @@
 ﻿Public Class PlayerCard
     Public name As String = "Placeholder"
+    Public playable As Boolean = True
     Public cost As Integer = 1
     Public description As String = "Placeholder card"
     Public Overridable Sub Play(player As Player, target As Enemy)
@@ -63,5 +64,14 @@ Public Class CardVulnerable
 
     Public Overrides Sub Play(player As Player, target As Enemy)
         target.ApplyCondition(New VulnerableCondition())
+    End Sub
+End Class
+
+Public Class CardConfused
+    Inherits PlayerCard
+    Sub New()
+        name = "Confusion"
+        description = "Unplayable"
+        playable = False
     End Sub
 End Class

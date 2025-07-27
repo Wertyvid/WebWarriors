@@ -15,4 +15,10 @@
         AutoSize = True
         AddHandler Click, eventHandler
     End Sub
+
+    Public Sub New(newCard As PlayerCard)
+        card = newCard
+        Text = card.ToString
+        AutoSize = True
+    End Sub
 End Class

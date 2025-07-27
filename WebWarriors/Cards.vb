@@ -19,6 +19,18 @@
         Return description
     End Function
 
+    Public Overloads Function GetCardButton()
+        Return New CardButton(Me)
+    End Function
+
+    Public Overloads Function GetCardButton(eventHandler As EventHandler)
+        Return New CardButton(Me, eventHandler)
+    End Function
+
+    Public Overloads Function GetCardButton(eventHandler As EventHandler, target As Enemy, player As Player)
+        Return New CardButton(Me, eventHandler, target, player)
+    End Function
+
 End Class
 
 Public Class RandomCardGetter

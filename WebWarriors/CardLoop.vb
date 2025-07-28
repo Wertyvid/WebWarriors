@@ -34,8 +34,8 @@ Public Class FrmWebWarriors
 
     Private Sub DisplayPlayer()
         LblPlayerInfo.Text = player.ToString()
-        LblDiscardCount.Text = player.DiscardPile.Count.ToString()
-        LblDrawCount.Text = player.drawPile.Count.ToString()
+        BtnDiscardCount.Text = player.DiscardPile.Count.ToString()
+        BtnDrawCount.Text = player.drawPile.Count.ToString()
     End Sub
 
     Private Sub DisplayEnemy()
@@ -54,9 +54,7 @@ Public Class FrmWebWarriors
     Private Sub LoadHand()
         FlwLayHand.Controls.Clear()
         For Each cardInHand In player.hand
-            Dim cardButton As CardButton
-            cardButton = New CardButton(cardInHand, AddressOf PlayCard, enemy, player)
-            FlwLayHand.Controls.Add(cardButton)
+            FlwLayHand.Controls.Add(cardInHand.GetCardButton(AddressOf PlayCard, enemy, player))
         Next
     End Sub
 
@@ -134,6 +132,16 @@ Public Class FrmWebWarriors
         If Not closeable Then
             e.Cancel = True
         End If
+    End Sub
+
+    Private Sub BtnDrawCount_Click(sender As Object, e As EventArgs) Handles BtnDrawCount.Click
+        Dim drawPileDisplayForm = New FrmDisplayCardList(player.drawPile)
+        drawPileDisplayForm.Show()
+    End Sub
+
+    Private Sub BtnDiscardCount_Click(sender As Object, e As EventArgs) Handles BtnDiscardCount.Click
+        Dim discardPileDisplayForm = New FrmDisplayCardList(player.DiscardPile)
+        discardPileDisplayForm.Show()
     End Sub
 End Class
 

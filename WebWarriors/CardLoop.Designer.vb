@@ -24,16 +24,16 @@ Partial Class FrmWebWarriors
     Private Sub InitializeComponent()
         TblLayMain = New TableLayoutPanel()
         TblLayCards = New TableLayoutPanel()
-        LblDiscardCount = New Label()
         FlwLayHand = New FlowLayoutPanel()
-        LblDrawCount = New Label()
+        BtnDrawCount = New Button()
+        BtnDiscardCount = New Button()
         TableLayoutPanel1 = New TableLayoutPanel()
         LblPlayerInfo = New Label()
         BtnEndTurn = New Button()
+        Label1 = New Label()
         TableLayoutPanel2 = New TableLayoutPanel()
         LstBoxLog = New ListBox()
         LblEnemyInfo = New Label()
-        Label1 = New Label()
         TblLayMain.SuspendLayout()
         TblLayCards.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
@@ -43,7 +43,7 @@ Partial Class FrmWebWarriors
         ' TblLayMain
         ' 
         TblLayMain.ColumnCount = 1
-        TblLayMain.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TblLayMain.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
         TblLayMain.Controls.Add(TblLayCards, 0, 1)
         TblLayMain.Controls.Add(TableLayoutPanel1, 0, 2)
         TblLayMain.Controls.Add(TableLayoutPanel2, 0, 0)
@@ -51,39 +51,28 @@ Partial Class FrmWebWarriors
         TblLayMain.Location = New Point(0, 0)
         TblLayMain.Name = "TblLayMain"
         TblLayMain.RowCount = 3
-        TblLayMain.RowStyles.Add(New RowStyle(SizeType.Percent, 35F))
-        TblLayMain.RowStyles.Add(New RowStyle(SizeType.Percent, 30F))
-        TblLayMain.RowStyles.Add(New RowStyle(SizeType.Percent, 35F))
+        TblLayMain.RowStyles.Add(New RowStyle(SizeType.Percent, 35.0F))
+        TblLayMain.RowStyles.Add(New RowStyle(SizeType.Percent, 30.0F))
+        TblLayMain.RowStyles.Add(New RowStyle(SizeType.Percent, 35.0F))
         TblLayMain.Size = New Size(800, 450)
         TblLayMain.TabIndex = 0
         ' 
         ' TblLayCards
         ' 
         TblLayCards.ColumnCount = 3
-        TblLayCards.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 10F))
-        TblLayCards.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 80F))
-        TblLayCards.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 10F))
-        TblLayCards.Controls.Add(LblDiscardCount, 2, 0)
+        TblLayCards.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 10.0F))
+        TblLayCards.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 80.0F))
+        TblLayCards.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 10.0F))
         TblLayCards.Controls.Add(FlwLayHand, 1, 0)
-        TblLayCards.Controls.Add(LblDrawCount, 0, 0)
+        TblLayCards.Controls.Add(BtnDrawCount, 0, 0)
+        TblLayCards.Controls.Add(BtnDiscardCount, 2, 0)
         TblLayCards.Dock = DockStyle.Fill
         TblLayCards.Location = New Point(3, 160)
         TblLayCards.Name = "TblLayCards"
         TblLayCards.RowCount = 1
-        TblLayCards.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TblLayCards.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TblLayCards.Size = New Size(794, 129)
         TblLayCards.TabIndex = 3
-        ' 
-        ' LblDiscardCount
-        ' 
-        LblDiscardCount.AutoSize = True
-        LblDiscardCount.Dock = DockStyle.Fill
-        LblDiscardCount.Location = New Point(717, 0)
-        LblDiscardCount.Name = "LblDiscardCount"
-        LblDiscardCount.Size = New Size(74, 129)
-        LblDiscardCount.TabIndex = 2
-        LblDiscardCount.Text = "Label2"
-        LblDiscardCount.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' FlwLayHand
         ' 
@@ -93,22 +82,31 @@ Partial Class FrmWebWarriors
         FlwLayHand.Size = New Size(629, 123)
         FlwLayHand.TabIndex = 0
         ' 
-        ' LblDrawCount
+        ' BtnDrawCount
         ' 
-        LblDrawCount.AutoSize = True
-        LblDrawCount.Dock = DockStyle.Fill
-        LblDrawCount.Location = New Point(3, 0)
-        LblDrawCount.Name = "LblDrawCount"
-        LblDrawCount.Size = New Size(73, 129)
-        LblDrawCount.TabIndex = 1
-        LblDrawCount.Text = "Label1"
-        LblDrawCount.TextAlign = ContentAlignment.MiddleCenter
+        BtnDrawCount.Dock = DockStyle.Fill
+        BtnDrawCount.Location = New Point(3, 3)
+        BtnDrawCount.Name = "BtnDrawCount"
+        BtnDrawCount.Size = New Size(73, 123)
+        BtnDrawCount.TabIndex = 3
+        BtnDrawCount.Text = "Draw Pile"
+        BtnDrawCount.UseVisualStyleBackColor = True
+        ' 
+        ' BtnDiscardCount
+        ' 
+        BtnDiscardCount.Dock = DockStyle.Fill
+        BtnDiscardCount.Location = New Point(717, 3)
+        BtnDiscardCount.Name = "BtnDiscardCount"
+        BtnDiscardCount.Size = New Size(74, 123)
+        BtnDiscardCount.TabIndex = 4
+        BtnDiscardCount.Text = "Discard Pile"
+        BtnDiscardCount.UseVisualStyleBackColor = True
         ' 
         ' TableLayoutPanel1
         ' 
         TableLayoutPanel1.ColumnCount = 2
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel1.Controls.Add(LblPlayerInfo, 1, 0)
         TableLayoutPanel1.Controls.Add(BtnEndTurn, 1, 1)
         TableLayoutPanel1.Controls.Add(Label1, 0, 1)
@@ -116,8 +114,8 @@ Partial Class FrmWebWarriors
         TableLayoutPanel1.Location = New Point(3, 295)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 2
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel1.Size = New Size(794, 152)
         TableLayoutPanel1.TabIndex = 4
         ' 
@@ -142,19 +140,28 @@ Partial Class FrmWebWarriors
         BtnEndTurn.Text = "End Turn"
         BtnEndTurn.UseVisualStyleBackColor = True
         ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(3, 76)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(41, 15)
+        Label1.TabIndex = 4
+        Label1.Text = "Label1"
+        ' 
         ' TableLayoutPanel2
         ' 
         TableLayoutPanel2.ColumnCount = 3
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 40F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 30F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 30F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 40.0F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 30.0F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 30.0F))
         TableLayoutPanel2.Controls.Add(LstBoxLog, 0, 0)
         TableLayoutPanel2.Controls.Add(LblEnemyInfo, 2, 0)
         TableLayoutPanel2.Dock = DockStyle.Fill
         TableLayoutPanel2.Location = New Point(3, 3)
         TableLayoutPanel2.Name = "TableLayoutPanel2"
         TableLayoutPanel2.RowCount = 1
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel2.Size = New Size(794, 151)
         TableLayoutPanel2.TabIndex = 5
         ' 
@@ -179,18 +186,9 @@ Partial Class FrmWebWarriors
         LblEnemyInfo.Text = "Label1"
         LblEnemyInfo.TextAlign = ContentAlignment.TopRight
         ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(3, 76)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(41, 15)
-        Label1.TabIndex = 4
-        Label1.Text = "Label1"
-        ' 
         ' FrmWebWarriors
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
         Controls.Add(TblLayMain)
@@ -198,7 +196,6 @@ Partial Class FrmWebWarriors
         Text = "Web Warriors"
         TblLayMain.ResumeLayout(False)
         TblLayCards.ResumeLayout(False)
-        TblLayCards.PerformLayout()
         TableLayoutPanel1.ResumeLayout(False)
         TableLayoutPanel1.PerformLayout()
         TableLayoutPanel2.ResumeLayout(False)
@@ -214,9 +211,9 @@ Partial Class FrmWebWarriors
     Friend WithEvents BtnEndTurn As Button
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents LstBoxLog As ListBox
-    Friend WithEvents LblDrawCount As Label
-    Friend WithEvents LblDiscardCount As Label
     Friend WithEvents LblEnemyInfo As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents BtnDrawCount As Button
+    Friend WithEvents BtnDiscardCount As Button
 
 End Class

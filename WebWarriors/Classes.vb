@@ -47,7 +47,7 @@
     End Sub
 
     Public Sub GiveCardForBattleToDrawPile(card As PlayerCard)
-        drawPile.Add(card)
+        drawPile.Insert(rnd.Next(0, drawPile.Count - 1), card)
     End Sub
 
     Private Sub DrawHand()

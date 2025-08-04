@@ -28,15 +28,18 @@ Partial Class FrmWebWarriors
         BtnDrawCount = New Button()
         BtnDiscardCount = New Button()
         TableLayoutPanel1 = New TableLayoutPanel()
+        TableLayoutPanel3 = New TableLayoutPanel()
         LblPlayerInfo = New Label()
         BtnEndTurn = New Button()
-        Label1 = New Label()
+        LstBoxPlayerConditions = New ListBox()
         TableLayoutPanel2 = New TableLayoutPanel()
         LstBoxLog = New ListBox()
         LblEnemyInfo = New Label()
+        LstBoxEnemyConditions = New ListBox()
         TblLayMain.SuspendLayout()
         TblLayCards.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
+        TableLayoutPanel3.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
         SuspendLayout()
         ' 
@@ -104,26 +107,41 @@ Partial Class FrmWebWarriors
         ' 
         ' TableLayoutPanel1
         ' 
-        TableLayoutPanel1.ColumnCount = 2
+        TableLayoutPanel1.ColumnCount = 4
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
-        TableLayoutPanel1.Controls.Add(LblPlayerInfo, 1, 0)
-        TableLayoutPanel1.Controls.Add(BtnEndTurn, 1, 1)
-        TableLayoutPanel1.Controls.Add(Label1, 0, 1)
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20.0F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15.0F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15.0F))
+        TableLayoutPanel1.Controls.Add(TableLayoutPanel3, 3, 0)
+        TableLayoutPanel1.Controls.Add(LstBoxPlayerConditions, 2, 0)
         TableLayoutPanel1.Dock = DockStyle.Fill
         TableLayoutPanel1.Location = New Point(3, 295)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
-        TableLayoutPanel1.RowCount = 2
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel1.RowCount = 1
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel1.Size = New Size(794, 152)
         TableLayoutPanel1.TabIndex = 4
+        ' 
+        ' TableLayoutPanel3
+        ' 
+        TableLayoutPanel3.ColumnCount = 1
+        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
+        TableLayoutPanel3.Controls.Add(LblPlayerInfo, 0, 0)
+        TableLayoutPanel3.Controls.Add(BtnEndTurn, 0, 1)
+        TableLayoutPanel3.Dock = DockStyle.Fill
+        TableLayoutPanel3.Location = New Point(677, 3)
+        TableLayoutPanel3.Name = "TableLayoutPanel3"
+        TableLayoutPanel3.RowCount = 1
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel3.Size = New Size(114, 146)
+        TableLayoutPanel3.TabIndex = 3
         ' 
         ' LblPlayerInfo
         ' 
         LblPlayerInfo.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         LblPlayerInfo.AutoSize = True
-        LblPlayerInfo.Location = New Point(731, 0)
+        LblPlayerInfo.Location = New Point(51, 0)
         LblPlayerInfo.Name = "LblPlayerInfo"
         LblPlayerInfo.Size = New Size(60, 15)
         LblPlayerInfo.TabIndex = 2
@@ -132,31 +150,34 @@ Partial Class FrmWebWarriors
         ' 
         ' BtnEndTurn
         ' 
-        BtnEndTurn.Dock = DockStyle.Right
-        BtnEndTurn.Location = New Point(716, 79)
+        BtnEndTurn.Dock = DockStyle.Fill
+        BtnEndTurn.Location = New Point(3, 76)
         BtnEndTurn.Name = "BtnEndTurn"
-        BtnEndTurn.Size = New Size(75, 70)
+        BtnEndTurn.Size = New Size(108, 67)
         BtnEndTurn.TabIndex = 3
         BtnEndTurn.Text = "End Turn"
         BtnEndTurn.UseVisualStyleBackColor = True
         ' 
-        ' Label1
+        ' LstBoxPlayerConditions
         ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(3, 76)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(41, 15)
-        Label1.TabIndex = 4
-        Label1.Text = "Label1"
+        LstBoxPlayerConditions.Dock = DockStyle.Fill
+        LstBoxPlayerConditions.FormattingEnabled = True
+        LstBoxPlayerConditions.ItemHeight = 15
+        LstBoxPlayerConditions.Location = New Point(558, 3)
+        LstBoxPlayerConditions.Name = "LstBoxPlayerConditions"
+        LstBoxPlayerConditions.Size = New Size(113, 146)
+        LstBoxPlayerConditions.TabIndex = 4
         ' 
         ' TableLayoutPanel2
         ' 
-        TableLayoutPanel2.ColumnCount = 3
+        TableLayoutPanel2.ColumnCount = 4
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 40.0F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 30.0F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 30.0F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15.0F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15.0F))
         TableLayoutPanel2.Controls.Add(LstBoxLog, 0, 0)
-        TableLayoutPanel2.Controls.Add(LblEnemyInfo, 2, 0)
+        TableLayoutPanel2.Controls.Add(LblEnemyInfo, 3, 0)
+        TableLayoutPanel2.Controls.Add(LstBoxEnemyConditions, 2, 0)
         TableLayoutPanel2.Dock = DockStyle.Fill
         TableLayoutPanel2.Location = New Point(3, 3)
         TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -186,6 +207,16 @@ Partial Class FrmWebWarriors
         LblEnemyInfo.Text = "Label1"
         LblEnemyInfo.TextAlign = ContentAlignment.TopRight
         ' 
+        ' LstBoxEnemyConditions
+        ' 
+        LstBoxEnemyConditions.Dock = DockStyle.Fill
+        LstBoxEnemyConditions.FormattingEnabled = True
+        LstBoxEnemyConditions.ItemHeight = 15
+        LstBoxEnemyConditions.Location = New Point(558, 3)
+        LstBoxEnemyConditions.Name = "LstBoxEnemyConditions"
+        LstBoxEnemyConditions.Size = New Size(113, 145)
+        LstBoxEnemyConditions.TabIndex = 5
+        ' 
         ' FrmWebWarriors
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
@@ -197,7 +228,8 @@ Partial Class FrmWebWarriors
         TblLayMain.ResumeLayout(False)
         TblLayCards.ResumeLayout(False)
         TableLayoutPanel1.ResumeLayout(False)
-        TableLayoutPanel1.PerformLayout()
+        TableLayoutPanel3.ResumeLayout(False)
+        TableLayoutPanel3.PerformLayout()
         TableLayoutPanel2.ResumeLayout(False)
         TableLayoutPanel2.PerformLayout()
         ResumeLayout(False)
@@ -208,12 +240,14 @@ Partial Class FrmWebWarriors
     Friend WithEvents FlwLayHand As FlowLayoutPanel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents LblPlayerInfo As Label
-    Friend WithEvents BtnEndTurn As Button
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents LstBoxLog As ListBox
     Friend WithEvents LblEnemyInfo As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents BtnDrawCount As Button
     Friend WithEvents BtnDiscardCount As Button
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents BtnEndTurn As Button
+    Friend WithEvents LstBoxPlayerConditions As ListBox
+    Friend WithEvents LstBoxEnemyConditions As ListBox
 
 End Class

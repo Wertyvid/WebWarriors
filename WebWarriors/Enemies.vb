@@ -63,6 +63,14 @@
         Return $"Enemy{vbCrLf}HP: {hp}{vbCrLf}{intentionList(battleForm.turncount Mod intentionList.Count).AsPremonition()}"
     End Function
 
+    Public Function GetConditionsAsStrings() As List(Of String)
+        Dim conditionStringList As List(Of String) = New List(Of String)
+        For Each condition In conditions
+            conditionStringList.Add(condition.ToString())
+        Next
+        Return conditionStringList
+    End Function
+
     Public Sub StartTurn()
         Dim currentIntention = intentionList(battleForm.turncount Mod intentionList.Count)
         battleForm.LogEvent(currentIntention.ToString())
@@ -72,6 +80,8 @@
             condition.EndTurnEffect(Me)
         Next
     End Sub
+
+
 
 End Class
 

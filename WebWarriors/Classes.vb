@@ -132,6 +132,14 @@
         End If
     End Sub
 
+    Public Function GetConditionsAsStrings() As List(Of String)
+        Dim conditionStringList As List(Of String) = New List(Of String)
+        For Each condition In conditions
+            conditionStringList.Add(condition.ToString())
+        Next
+        Return conditionStringList
+    End Function
+
     Public Sub UseMana(amount As Integer)
         currentMana -= amount
     End Sub

@@ -36,10 +36,19 @@ Public Class FrmWebWarriors
         LblPlayerInfo.Text = player.ToString()
         BtnDiscardCount.Text = player.DiscardPile.Count.ToString()
         BtnDrawCount.Text = player.drawPile.Count.ToString()
+        LstBoxPlayerConditions.Items.Clear()
+        For Each condition In player.GetConditionsAsStrings()
+            LstBoxPlayerConditions.Items.Add(condition)
+        Next
+
     End Sub
 
     Private Sub DisplayEnemy()
         LblEnemyInfo.Text = enemy.ToString()
+        LstBoxEnemyConditions.Items.Clear()
+        For Each condition In enemy.GetConditionsAsStrings()
+            LstBoxEnemyConditions.Items.Add(condition)
+        Next
     End Sub
 
     Private Sub UpdateDisplay()

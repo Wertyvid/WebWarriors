@@ -109,7 +109,7 @@ Public Class SentryEnemy
 
     Public Overrides Sub Setup()
         SetMaxHP(40)
-        intentionList.Add(New ConfuseIntention(100))
+        intentionList.Add(New ConfuseIntention(2))
         intentionList.Add(New AttackIntention(9))
     End Sub
 End Class
